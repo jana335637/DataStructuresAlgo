@@ -63,7 +63,7 @@ public class Node {
                 }
             }
             System.out.println("j is :"+j +"   position-1 : "+(position-1));
-            if((j == (position-1)) && (currentNode != null)){
+            if((j == (position-1)) && (currentNode.next != null)){
                 Node temp = currentNode.next;
                 currentNode.next = temp.next;
                 temp.next = null;
@@ -155,6 +155,7 @@ public class Node {
             addNode(i);
         }
         printLinkedList();
+        delete(13);
         insertAtBeginning(-2);
         printLinkedList();
         insertAtBeginning(-1);

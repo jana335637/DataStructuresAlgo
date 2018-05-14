@@ -104,7 +104,6 @@ public class BSTNode implements Comparable{
     private static int findHeight(BSTNode root) {
         if(root==null)
             return -1;
-
         return max(findHeight(root.left),findHeight(root.right))+1;
     }
 

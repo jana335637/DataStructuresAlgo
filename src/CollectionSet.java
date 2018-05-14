@@ -49,6 +49,7 @@ public class CollectionSet {
 
 class Student implements Comparable{
     int rollno;
+    String name;
 
     public Student(int rollno) {
         this.rollno = rollno;
