@@ -53,5 +53,7 @@ public class Practice {
         System.out.println(new SimpleDateFormat("yyyy-mm-dd").format(new Date()));
         Practice practice = new Practice();
         practice.Practice();
+        int[][] matrix = new int[3][4];
+        System.out.println(matrix.length + " "+ matrix[0].length );
     }
 }

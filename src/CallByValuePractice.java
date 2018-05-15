@@ -10,7 +10,7 @@ public class CallByValuePractice {
         System.out.println(x);
     }
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         CallByValuePractice callByValuePractice =new CallByValuePractice();
         callByValuePractice.id = 50;
         System.out.println(callByValuePractice.id);
@@ -27,7 +27,7 @@ public class CallByValuePractice {
         for (int number : integers) {
             System.out.print(number);
         }
-    }*/
+    }
     public void change(){
         this.id = 100;
     }
@@ -41,6 +41,12 @@ public class CallByValuePractice {
         array = null;
         System.out.println(array);
         System.out.println(new CallByValuePractice());
+    }
+    public void change3(Integer x,Integer y)
+    {
+        x=new Integer(4);
+        y=new Integer(5);
+
     }
 }
 
