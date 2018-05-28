@@ -19,6 +19,9 @@ public class Practice {
     public static void main(String[] args) throws IOException {
 
         int x= -4;
+        String s="jana";
+        System.out.println(s.equals("jana"));
+        System.out.println((int)Math.sqrt(23));
         //Runtime.getRuntime().exec("notepad");
         System.out.println(
         Runtime.getRuntime().availableProcessors() + "Free memory:"+
