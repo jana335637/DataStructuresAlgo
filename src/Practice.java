@@ -16,12 +16,20 @@ public class Practice {
         System.out.println("Practice method");
         System.out.println();
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CloneNotSupportedException {
 
-        int x= -4;
-        String s="jana";
-        System.out.println(s.equals("jana"));
-        System.out.println((int)Math.sqrt(23));
+        System.out.println(sum(1,2.0));
+        B obj = new B();
+        obj.sum(1,2);
+        obj.getObject(obj);
+        int[] array = new int[]{1, 2, 3, 4, 5};
+        int[] a2 = array.clone();
+        for (int n : a2) {
+            System.out.println(n);
+        }
+        B b = (B)obj.clone();
+        System.out.println(b.sum(3,4));
+        /*int x= -4;
         //Runtime.getRuntime().exec("notepad");
         System.out.println(
         Runtime.getRuntime().availableProcessors() + "Free memory:"+
@@ -57,6 +65,37 @@ public class Practice {
         Practice practice = new Practice();
         practice.Practice();
         int[][] matrix = new int[3][4];
-        System.out.println(matrix.length + " "+ matrix[0].length );
+        System.out.println(matrix.length + " "+ matrix[0].length );*/
+    }
+    static int sum(int a, int b){
+        return a+b;
+    }
+    static double sum(int a, double b){
+        return a+b;
+    }
+}
+class A {
+    public int sum(int a,int b){
+        System.out.println("A sum:::::::");
+        return a+b;
+    }
+    A getObject(A a)
+    {
+        sum(1,2);
+        return this;
+    }
+}
+class B extends  A implements Cloneable{
+    public int sum(int a,int b){
+        System.out.println("B Sum:::::::::::::");
+        return a+b;
+    }
+    B getObject(B a)
+    {
+        sum(1,2);
+        return this;
+    }
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
     }
 }
