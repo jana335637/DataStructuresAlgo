@@ -1,5 +1,7 @@
 package DataStructures;
 
+import java.util.HashSet;
+
 public class Node {
     int value;
     static Node head;
@@ -150,6 +152,8 @@ public class Node {
         insert(28,1);
         printLinkedList();
         insert(29,2);
+        addNode(-2);
+        addNode(29);
         printLinkedList();
         for (int i = 0; i < 10; i++) {
             addNode(i);
@@ -178,5 +182,32 @@ public class Node {
         printLinkedList();
         recursiveReversePrint(head);
         System.out.println();
+        printLinkedList();
+        addNode(6);
+        addNode(7);
+        addNode(8);
+        printLinkedList();
+        deleteDuplicates(head);
+        printLinkedList();
+    }
+
+    private static void deleteDuplicates(Node head) {
+        HashSet<Integer> uniqueNumbers = new HashSet<>();
+        uniqueNumbers.add(head.value);
+        Node previousNode = head;
+        Node currentNode = head.next;
+        while(currentNode!=null)
+        {
+            if(uniqueNumbers.contains(currentNode.value)){
+                previousNode.next = currentNode.next;
+                currentNode.next=null;
+                currentNode = previousNode.next;
+            }
+            else {
+                uniqueNumbers.add(currentNode.value);
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+        }
     }
 }

@@ -8,7 +8,6 @@ public class ArraysProblems {
         for (int i = 1; i < stocks.length-2; i++) {
             currentProfit = (getProfitinStocks(stocks, 0, i+1) + getProfitinStocks(stocks, i+1, stocks.length));
             if (maxProfit < currentProfit){
-
                 maxProfit = currentProfit;
             }
         }

@@ -16,8 +16,19 @@ public class Practice {
         System.out.println("Practice method");
         System.out.println();
     }
+    static int tryReturn(){
+        try{
+            //throw new Exception();
+            return 1;
+        }
+
+        finally{
+            System.out.println("finally block executed");
+        }
+    }
     public static void main(String[] args) throws IOException, CloneNotSupportedException {
 
+        System.out.println(tryReturn());
         System.out.println(sum(1,2.0));
         B obj = new B();
         obj.sum(1,2);
@@ -29,6 +40,8 @@ public class Practice {
         }
         B b = (B)obj.clone();
         System.out.println(b.sum(3,4));
+
+        //return 2;
         /*int x= -4;
         //Runtime.getRuntime().exec("notepad");
         System.out.println(

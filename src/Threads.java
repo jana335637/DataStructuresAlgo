@@ -1,8 +1,16 @@
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Threads {
 
+    static Lock lock = new ReentrantLock();
     public static void main(String[] args) throws InterruptedException {
-        //threadmisc();
+        //threadmisc();s
+
+        lock.lock();
+        BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
         multi m = new multi();
         //m.run(); It won't be treated as thread, runs on main call stack, No stack will be created
         //m.join(1000);
