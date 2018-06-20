@@ -1,6 +1,4 @@
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.*;
 
 public class MaximumTipCalculator {
     public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class MaximumTipCalculator {
         System.out.println("Y Orders:");
         int y = in.nextInt();
         int totalTips=0;
-        TreeSet<Tip> tips = new TreeSet<>();
+        ArrayList<Tip> tips = new ArrayList<>();
         for (int i = 0; i < totalOrders ; i++) {
             Tip tip = new Tip();
             System.out.println("Ai:");
@@ -22,6 +20,7 @@ public class MaximumTipCalculator {
             tip.diff = tip.a - tip.b;
             tips.add(tip);
         }
+        Collections.sort(tips,new tipComparator());
         Iterator iterator = tips.iterator();
         while(iterator.hasNext())
         {
@@ -48,5 +47,26 @@ class Tip implements Comparable{
     public int compareTo(Object o) {
         Tip tip = (Tip)o;
         return Integer.compare((tip.diff<0)?tip.diff*-1:tip.diff,(this.diff<0)?this.diff*-1:this.diff);
+    }
+}
+class tipComparator implements Comparator{
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        Tip tip1 = (Tip)o1;
+        Tip tip2 = (Tip)o2;
+        int diff1 = (tip2.diff<0)?tip2.diff*-1:tip2.diff;
+        int diff2 = (tip1.diff<0)?tip1.diff*-1:tip1.diff;
+        if(diff1>diff2)
+            return 1;
+        else if(diff1<diff2)
+            return -1;
+        else
+            return 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return false;
     }
 }
