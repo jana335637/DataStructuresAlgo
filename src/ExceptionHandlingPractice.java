@@ -31,14 +31,21 @@ public class ExceptionHandlingPractice {
     static void method2(){
        throw new Error();
     }
-    static String returnMethod(){
+    static int returnMethod() {
+        int result=0;
+        result=18/0;
+/*
         try{
-            return "Jana";
+            result=18/0;
+        }
+        catch(ArithmeticException e){
+            e.printStackTrace();
         }
         finally {
             System.out.println("finally block of return Method");
         }
-
+*/
+        return result;
     }
 }
 

@@ -2,6 +2,8 @@ import java.util.Arrays;
 
 public class ArraysProblems {
     public static void main(String[] args) {
+        int[] array = {1,2,3,4,5,6};
+        System.out.println(getSum(array,array.length));
         int[] stocks = {90, 80, 70, 60, 200,100,400};
         //getProfitinStocks(stocks);
         int maxProfit = 0,currentProfit=0;
@@ -18,6 +20,12 @@ public class ArraysProblems {
         else {
             System.out.println("Max profit is "+maxProfit);
         }
+    }
+
+    private static int getSum(int[] array,int r) {
+        if(r==1)
+            return array[r-1];
+        return array[r-1]+getSum(array,r-1);
     }
 
     private static int getProfitinStocks(int[] stocks,int start,int end) {
