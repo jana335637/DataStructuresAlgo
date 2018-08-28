@@ -1,57 +1,38 @@
-package SI.Contest1;
+package SI.Searching;
 
 import java.util.Scanner;
 
 /**
  * Created by pillutja on 8/26/2018.
  */
-public class FindingTheCeil {
+public class FindingTheFloor {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         int arraySize = in.nextInt();
-        int[] array = new int[arraySize];
+        int[] array = {-11,-7,-1,2,10,12,16,18,19};
+/*
         for (int i = 0; i < arraySize; i++) {
             array[i] = in.nextInt();
         }
+*/
         mergeSort(array,0,arraySize-1);
         int queriesSize = in.nextInt();
-        int[] queries = new int[queriesSize];
-        for (int i = 0; i < queriesSize; i++) {
-            queries[i] = in.nextInt();
-            System.out.println(MBS(array,0,array.length-1,queries[i]));
-        }
-    }
-
-    private static int MBSIterative(int[] array, int low, int high, int key) {
-        while(low<high)
-        {
-            int mid =low+(high-low)/2;
-            if(array[mid]>=key){
-                high=mid;
-            }
+        int[] queries = {7,20,-50,100,-4,5};
+        for (int i = 0; i < queries.length; i++) {
+            if(array[0]>queries[i])
+                System.out.println(Integer.MIN_VALUE);
             else
-                low=mid+1;
+                System.out.println(MBS(array,0,array.length-1,queries[i]));
         }
-        if(low==array.length-1 && array[low]<key){
-                return Integer.MAX_VALUE;
-        }
-        return array[low];
     }
 
     private static int MBS(int[] array, int low, int high, int key) {
-        int mid=low+(high-low+1)/2;
-        if(mid==array.length-1)
-        {
-            if(array[mid]>key)
-                return array[mid];
-            else
-                return Integer.MAX_VALUE;
-        }
-        if((array[mid]>=key && mid==0) ||(array[mid]>=key && (mid-1)>=0 && array[mid-1]<key))
+        int mid=low+(high-low)/2;
+        if(( mid==array.length-1) ||(array[mid]<=key && (mid+1)<array.length && array[mid+1]>key))
             return array[mid];
         if(array[mid]>key)
-            return MBS(array,low,mid-1,key);
-        return MBS(array,mid,high,key);
+            return MBS(array,low,mid,key);
+        return MBS(array,mid+1,high,key);
     }
 
     private static void mergeSort(int[] array,int low,int high) {
