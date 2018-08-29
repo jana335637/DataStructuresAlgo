@@ -19,14 +19,13 @@ public class FindingFrequency {
         }
         for (int i = 0; i < queriesSize; i++) {
             int key = queries[i];
-            System.out.println("Higher: "+getHigherIndexMBS(array, 0, arraySize - 1, key)+",Lower:"+getLowerIndexMBS(array, 0, arraySize - 1, key));
             System.out.println(getHigherIndexMBS(array, 0, arraySize - 1, key) - getLowerIndexMBS(array, 0, arraySize - 1, key) + 1);
         }
     }
 
     private static int getLowerIndexMBS(int[] array, int low, int high, int key) {
-        if (low == high)
-            return -2;
+        if((low==high)&&(array[low]!=key))
+            return 2;
         int mid = low + (high - low + 1) / 2;
         if (mid == 0 || ((array[mid] == key) && (mid - 1) >= 0 && array[mid - 1] < key))
             return mid;
@@ -37,7 +36,7 @@ public class FindingFrequency {
 
     private static int getHigherIndexMBS(int[] array, int low, int high, int key) {
         int mid = low + (high - low) / 2;
-        if(low==high)
+        if((low==high)&&(array[low]!=key))
             return 1;
         if(mid == (array.length - 1) || ((array[mid] == key) && (mid + 1) < array.length && array[mid + 1] > key))
             return mid;
