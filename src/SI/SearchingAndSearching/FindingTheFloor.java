@@ -1,44 +1,38 @@
-package SI.Sorting;
+package SI.SearchingAndSearching;
 
 import java.util.Scanner;
 
 /**
- * Created by pillutja on 8/22/2018.
+ * Created by pillutja on 8/26/2018.
  */
-public class PairDifference
-{
+public class FindingTheFloor {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
-
-        int testCases = in.nextInt();
-        for (int i = 0; i < testCases; i++) {
-            System.out.println(getDifference());
+        int arraySize = in.nextInt();
+        int[] array = {-11,-7,-1,2,10,12,16,18,19};
+/*
+        for (int i = 0; i < arraySize; i++) {
+            array[i] = in.nextInt();
+        }
+*/
+        mergeSort(array,0,arraySize-1);
+        int queriesSize = in.nextInt();
+        int[] queries = {7,20,-50,100,-4,5};
+        for (int i = 0; i < queries.length; i++) {
+            if(array[0]>queries[i])
+                System.out.println(Integer.MIN_VALUE);
+            else
+                System.out.println(MBS(array,0,array.length-1,queries[i]));
         }
     }
 
-    private static boolean getDifference() {
-        int arraySize = in.nextInt();
-        int difference = in.nextInt();
-        int[] array = new int[arraySize];
-        for (int i = 0; i < arraySize; i++) {
-            array[i]=in.nextInt();
-        }
-        mergeSort(array,0,arraySize-1);
-        int p1 = 0,p2=1;
-        while(p2<arraySize){
-            int diff = array[p2]-array[p1];
-            if(diff==difference)
-                return true;
-            else if(diff>difference){
-                if((p2-p1)==1)
-                    p1=p2++;
-                else
-                    p1++;
-            }
-            else
-                p2++;
-        }
-        return false;
+    private static int MBS(int[] array, int low, int high, int key) {
+        int mid=low+(high-low)/2;
+        if(( mid==array.length-1) ||(array[mid]<=key && (mid+1)<array.length && array[mid+1]>key))
+            return array[mid];
+        if(array[mid]>key)
+            return MBS(array,low,mid,key);
+        return MBS(array,mid+1,high,key);
     }
 
     private static void mergeSort(int[] array,int low,int high) {

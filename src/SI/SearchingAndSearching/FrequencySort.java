@@ -1,4 +1,4 @@
-package SI.Sorting;
+package SI.SearchingAndSearching;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,40 +1,46 @@
-package SI.Sorting;
+package SI.SearchingAndSearching;
 
 import java.util.Scanner;
 
 /**
- * Created by pillutja on 8/26/2018.
+ * Created by pillutja on 8/22/2018.
  */
-public class TripleTrouble {
+public class PairDifference
+{
     static Scanner in = new Scanner(System.in);
-
     public static void main(String[] args) {
 
         int testCases = in.nextInt();
         for (int i = 0; i < testCases; i++) {
-            tripleTrouble();
+            System.out.println(getDifference());
         }
     }
 
-    private static void tripleTrouble() {
+    private static boolean getDifference() {
         int arraySize = in.nextInt();
+        int difference = in.nextInt();
         int[] array = new int[arraySize];
         for (int i = 0; i < arraySize; i++) {
             array[i]=in.nextInt();
         }
         mergeSort(array,0,arraySize-1);
-        int i=0;
-        while(i<arraySize){
-         if((i==(arraySize-1))||array[i]!=array[i+1]){
-             System.out.println(array[i]);
-             break;
-         }
-         else
-         {
-             i+=3;
-         }
+        int p1 = 0,p2=1;
+        while(p2<arraySize){
+            int diff = array[p2]-array[p1];
+            if(diff==difference)
+                return true;
+            else if(diff>difference){
+                if((p2-p1)==1)
+                    p1=p2++;
+                else
+                    p1++;
+            }
+            else
+                p2++;
         }
+        return false;
     }
+
     private static void mergeSort(int[] array,int low,int high) {
         int mid= low+(high-low)/2;
         if(low==high)
