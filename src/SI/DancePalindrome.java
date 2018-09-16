@@ -21,11 +21,8 @@ public class DancePalindrome
     private static int getMinCost(int[] array, int[] costs) {
         int size=array.length;
         int loopsize=0,cost=0;
-        if((size&1)==1)
-            loopsize = (size/2)-1;
-        else
-            loopsize = size/2;
-        for (int i = 0; i <=loopsize ; i++) {
+        loopsize = (size/2)-1;
+        for (int i = 0; i <= loopsize ; i++) {
             int p1=i,p2=size-1-i;
             if(array[p1]<=1 && array[p2]<=1){
                 if(array[p1]!=array[p2])
@@ -45,7 +42,7 @@ public class DancePalindrome
                     cost+=costs[array[p2]];
                 }
                 else
-                    cost+=(costs[0]<costs[1])?costs[0]:costs[1];
+                    cost+=(2*((costs[0]<costs[1])?costs[0]:costs[1]));
             }
         }
         if((size&1)==1){

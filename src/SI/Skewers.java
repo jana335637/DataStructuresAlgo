@@ -7,15 +7,19 @@ public class Skewers {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int k = in.nextInt();
-        int fw = (n%(2*k+1))-k,count=0,i=0;
+        int fw = (n%(2*k+1));
         double loopSize = Math.ceil(n/((2*k+1)*1.0));
         System.out.println((int)loopSize);
-        if(fw<=0)
+        if(fw==0)
         {
-            fw=1;
+            fw=k+1;
         }
+        else if(fw>k){
+            fw-=k;
+        }
+        loopSize = loopSize-1;
         System.out.print(fw+" ");
-        for (int j = 0; i < loopSize - 1; i++) {
+        for (int j = 0; j < loopSize ; j++) {
             fw+=(2*k+1);
             System.out.print(fw+" ");
         }
