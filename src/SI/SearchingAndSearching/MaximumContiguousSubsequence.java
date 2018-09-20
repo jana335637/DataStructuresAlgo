@@ -15,15 +15,19 @@ public class MaximumContiguousSubsequence {
             for (int j = 0; j < arraySize; j++) {
                 array[j] = in.nextInt();
             }
-            mergeSort(array, 0, arraySize - 1);
-            System.out.println(maximumContiguousSubsequence(array));
+            if(arraySize!=0){
+                mergeSort(array, 0, arraySize - 1);
+                System.out.println(maximumContiguousSubsequence(array));
+            }
         }
     }
 
     private static int maximumContiguousSubsequence(int[] array) {
         int maxCount=0,count=0;
+        boolean found=false;
         for (int i = 1; i < array.length; i++) {
             if((array[i]-array[i-1])==1){
+                found=true;
                 count++;
             }
             else
@@ -39,7 +43,11 @@ public class MaximumContiguousSubsequence {
                 }
             }
         }
-        return maxCount+1;
+        if(found)
+            return maxCount+1;
+        else
+            return maxCount;
+
     }
 
 
