@@ -28,7 +28,8 @@ public class Practice {
     }
     public static void main(String[] args) throws IOException, CloneNotSupportedException {
 
-        System.out.println(tryReturn());
+        System.out.println("889".compareTo("898"));
+        /*System.out.println(tryReturn());
         System.out.println(sum(1,2.0));
         B obj = new B();
         obj.sum(1,2);
@@ -39,7 +40,7 @@ public class Practice {
             System.out.println(n);
         }
         B b = (B)obj.clone();
-        System.out.println(b.sum(3,4));
+        System.out.println(b.sum(3,4));*/
 
         //return 2;
         /*int x= -4;
