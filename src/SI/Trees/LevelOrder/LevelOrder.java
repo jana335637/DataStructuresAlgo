@@ -1,13 +1,12 @@
-package SI.Trees;
+package SI.Trees.LevelOrder;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
-/**
- * Created by pillutja on 8/17/2018.
- */
-public class TreeTraversals {
-    static StringBuilder sb = new StringBuilder();
+public class LevelOrder {
+
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) throws IOException {
         int testCases =in.nextInt();
@@ -27,37 +26,33 @@ public class TreeTraversals {
         for (int i = 0; i < n; i++) {
             root=insert(root,a[i]);
         }
-        sb = new StringBuilder();
-        preOrder(root);
-        System.out.println(sb.toString());
-        sb = new StringBuilder();
-        inOrder(root);
-        System.out.println(sb.toString());
-        sb = new StringBuilder();
-        postOrder(root);
-        System.out.println(sb.toString());
+        levelOrder(root);
     }
 
-    private static void preOrder(TreeNode root) {
-        if(root==null)
-            return;
-        sb.append(root.val+" ");
-        preOrder(root.left);
-        preOrder(root.right);
+    private static void levelOrder(TreeNode root) {
+        int num=1;
+        Queue<TreeNode> q =new LinkedList<>();
+        if(root!=null) {
+            q.add(root);
+            q.add(null);
+        }
+        while(q.size()>1){
+            TreeNode current = q.poll();
+            if(current!=null){
+                if(current.left!=null)
+                    q.add(current.left);
+                if(current.right!=null)
+                    q.add(current.right);
+                System.out.print(current.val+" ");
+            }
+            else{
+                System.out.println();
+                q.add(null);
+            }
+        }
+        System.out.println();
     }
-    private static void inOrder(TreeNode root) {
-        if(root==null)
-            return;
-        inOrder(root.left);
-        sb.append(root.val+" ");
-        inOrder(root.right);
-    }
-    private static void postOrder(TreeNode root) {
-        if(root==null) return;
-        postOrder(root.left);
-        postOrder(root.right);
-        sb.append(root.val+" ");
-    }
+
     private static TreeNode insert(TreeNode root, int x) {
         if(root==null)
             return new TreeNode(x);
