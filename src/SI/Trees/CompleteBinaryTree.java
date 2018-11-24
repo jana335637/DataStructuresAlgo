@@ -42,8 +42,12 @@ public class CompleteBinaryTree {
             TreeNodeDepth node = queue.poll();
             if(complete && (node.left!=null || node.right!=null))
                 return false;
-            if(!complete && (node.left==null | node.right==null))
-                complete=true;
+            if(!complete){
+                if((node.left==null && node.right!=null))
+                    return false;
+                if((node.left==null || node.right==null))
+                    complete=true;
+            }
         }
         return true;
     }
