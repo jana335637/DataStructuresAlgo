@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -28,7 +29,9 @@ public class Practice {
     }
     public static void main(String[] args) throws IOException, CloneNotSupportedException {
 
-        System.out.println("889".compareTo("898"));
+        ArrayList<String> strings = new ArrayList<>();
+        System.out.println(strings.contains("jana"));
+        //System.out.println("889".compareTo("898"));
         /*System.out.println(tryReturn());
         System.out.println(sum(1,2.0));
         B obj = new B();
