@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class PathInGraph {
+public class FuelFission {
 
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) throws IOException {
@@ -33,40 +33,26 @@ public class PathInGraph {
         int pathChecks =in.nextInt();
         for (int i = 0; i < pathChecks; i++) {
             int node1=in.nextInt(),node2=in.nextInt();
-            //if(BFS(G,node1,node2))
-            boolean[] vis = new boolean[G.size()];
-            if(DFS(G,node1,node2,vis))
+            if(BFS(G,node1,node2))
                 System.out.println("Yes");
             else
                 System.out.println("No");
         }
     }
 
-    private static boolean DFS(ArrayList<ArrayList<Pair<Integer, Integer>>> G, int s, int d, boolean[] vis) {
-        if(vis[s]) return false;
-        vis[s]=true;
-        if(s==d) return true;
-        for(Pair<Integer,Integer> newNode:G.get(s)){
-            if(DFS(G,newNode.getKey(),d,vis))
-                return true;
-        }
-        return false;
-    }
-
     private static boolean BFS(ArrayList<ArrayList<Pair<Integer, Integer>>> G, int s, int d) {
         boolean[] vis = new boolean[G.size()];
         Queue<Integer> q = new LinkedList<>();
         q.add(s);
-        vis[s]=true;
         while(!q.isEmpty()){
            int p = q.poll();
+            vis[p]=true;
             for (Pair<Integer, Integer> p1:G.get(p)){
                 int newNode = p1.getKey();
                 if(!vis[newNode]) {
-                    if (Integer.compare(newNode,d)==0)
+                    if (newNode == d)
                         return true;
                     q.add(newNode);
-                    vis[newNode]=true;
                 }
             }
         }
