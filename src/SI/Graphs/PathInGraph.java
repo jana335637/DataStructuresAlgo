@@ -35,7 +35,7 @@ public class PathInGraph {
             int node1=in.nextInt(),node2=in.nextInt();
             //if(BFS(G,node1,node2))
             boolean[] vis = new boolean[G.size()];
-            if(DFS(G,node1,node2,vis))
+            if(BFS(G,node1,node2))
                 System.out.println("Yes");
             else
                 System.out.println("No");
@@ -63,7 +63,7 @@ public class PathInGraph {
             for (Pair<Integer, Integer> p1:G.get(p)){
                 int newNode = p1.getKey();
                 if(!vis[newNode]) {
-                    if (Integer.compare(newNode,d)==0)
+                    if (newNode==d)
                         return true;
                     q.add(newNode);
                     vis[newNode]=true;

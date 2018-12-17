@@ -1,13 +1,11 @@
 package SI;
 
 import java.util.Scanner;
-
 /**
  * Created by pillutja on 8/26/2018.
  */
 public class FindingTheFloor {
     static Scanner in = new Scanner(System.in);
-
     public static void main(String[] args) {
         int arraySize = in.nextInt();
         int[] array = new int[arraySize];
