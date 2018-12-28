@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -83,6 +84,11 @@ public class Practice {
         practice.Practice();
         int[][] matrix = new int[3][4];
         System.out.println(matrix.length + " "+ matrix[0].length );*/
+        System.out.println(e.d);
+        Date sysDate = new Date(),validationDate=new Date("05/31/2019");
+        System.out.println(sysDate +" "+ validationDate+ " "+ validationDate.after(sysDate));
+        Calendar aCalendar = Calendar.getInstance();
+        System.out.println(aCalendar);
     }
     static int sum(int a, int b){
         return a+b;
@@ -112,7 +118,9 @@ class B extends  A implements Cloneable{
         sum(1,2);
         return this;
     }
-    public Object clone() throws CloneNotSupportedException{
-        return super.clone();
-    }
 }
+class e{
+    static Date d = new Date();
+
+}
+

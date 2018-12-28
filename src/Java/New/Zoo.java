@@ -7,8 +7,8 @@ public class Zoo {
     }
 
     public static void main(String[] args) {
-        Foo f =new Foo();
-        System.out.println(f.getName());
+        /*Foo f =new Foo();
+        System.out.println(f.getName());*/
     }
     protected int getAge(){
         return 10;
