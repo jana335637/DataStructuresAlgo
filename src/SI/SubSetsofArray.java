@@ -1,6 +1,7 @@
 package SI;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -23,6 +24,7 @@ public class SubSetsofArray {
         }
         mergeSort(a, 0, a.length - 1);
         int[] b=removeDuplicates(a);
+        /*LinkedList*/
 
         for (int i = 0; i < b.length; i++) {
             System.out.println(b[i]);
