@@ -11,6 +11,6 @@ public class Dance extends A {
     public static void main(String[] args) {
         Dance d = new Dance();
         System.out.println(d.x);
-        A a =new A("s");
+        /*A a =new A("s");*/
     }
 }

@@ -18,10 +18,21 @@ public class MatrixRotation {
                 int offset = i - first;
                 int top = matrix[first][i];
                 System.out.println("Top::::::::::::"+top+"Offset::::::"+offset);
+/*              90 degrees rotation
                 matrix[first][i] = matrix[last-offset][first];
                 matrix[last-offset][first] = matrix[last][last-offset];
                 matrix[last][last-offset] = matrix[i][last];
                 matrix[i][last] = top;
+*/
+                //180 degrees rotation
+
+                matrix[first][i] = matrix[last][last-offset];
+                matrix[last][last-offset] = top;
+
+                int bottomLeft = matrix[last-offset][first];
+                matrix[last-offset][first] =  matrix[i][last];
+                matrix[i][last] = bottomLeft;
+
                 System.out.println("In loop:");
                 printMatrix(matrix);
                 System.out.println();
