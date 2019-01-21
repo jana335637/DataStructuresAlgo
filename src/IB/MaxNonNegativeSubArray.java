@@ -1,8 +1,6 @@
 package IB;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by pillutja on 8/17/2018.
@@ -21,70 +19,50 @@ public class MaxNonNegativeSubArray {
         }
         A = maxset(A);
         for (int num : A) {
-            System.out.print(num+" ");
+            System.out.print(num + " ");
         }
 
     }
 
     public static ArrayList<Integer> maxset(ArrayList<Integer> A) {
-        if(A.size()==1){
-            if(A.get(0)<0)
-                return new ArrayList<>();
-            return A;
-        }
-        int sum=0,ansStart=-1,ansEnd=-1,tempStart=0,tempEnd=-1,ansSum=Integer.MIN_VALUE,preNegSum=0,negativeSum=0,flag=0;
-        ArrayList<Integer> prefixSums = new ArrayList<>();
-        ArrayList<Integer> ans = new ArrayList<>();
-        for (int num : A) {
-            if(num>=0)
-                flag=1;
-            prefixSums.add(sum+=num);
-        }
-        if(flag==0)
-            return new ArrayList<>();
-        for (int i = 0; i < prefixSums.size()-1; i++) {
-            if(A.get(i)<0)
-                continue;
-            if(prefixSums.get(i)>prefixSums.get(i+1)){
-                negativeSum = prefixSums.get(i+1);
-                tempEnd=i;
-                int tempSum = (ansStart==-1)?prefixSums.get(i):(prefixSums.get(i)-preNegSum);
-                if(ansSum<tempSum){
-                    ansSum=tempSum;
-                    ansStart=tempStart;
-                    ansEnd=tempEnd;
-                }
+        int sum = 0, endIndex = 0, startIndex = 0, max = Integer.MIN_VALUE, minIndex = 0, maxSize = 0;
+        ArrayList<Integer> B = new ArrayList<Integer>();
+        Map<Integer, Integer> C = new HashMap<>();
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        for (int i = 0; i < A.size(); i++) {
+            if (A.get(i) >= 0) {
+                sum += A.get(i);
+                B.add(sum);
+            } else {
+                B.add(-1);
+                sum = 0;
             }
-            if(i>0 && A.get(i-1)<0)
-            {
-                tempStart=i;
-            }
-            preNegSum = negativeSum;
-        }
-        int last=prefixSums.size()-1,ite=last-1;
-        if(ansEnd!=prefixSums.size()-2 && A.get(last)>=0) {
-            while (ite >= 0) {
-                if (ite == 0) {
-                    ansStart = 0;
-                    ansEnd = prefixSums.size() - 1;
-                }
-                if (A.get(ite) < 0) {
-                    int tempSum = prefixSums.get(last) - prefixSums.get(ite);
-                    if (ansSum < tempSum) {
-                        ansSum = tempSum;
-                        ansStart = ite + 1;
-                        ansEnd = last;
-                    }
-                    break;
-                }
-                ite--;
+            if (max < B.get(i)) {
+                max = B.get(i);
             }
         }
-        if(ansStart==0 && ansEnd==prefixSums.size()-1)
-            return A;
-        for (int i = ansStart; i <= ansEnd ; i++) {
+        for (int i = 0; i < B.size(); i++) {
+            if (B.get(i) == -1) {
+                startIndex = (i + 1);
+            } else if (B.get(i) == max) {
+                C.put(i, startIndex);
+            }
+        }
+        for (int endI : C.keySet()) {
+            if ((endI - C.get(endI) +1) > maxSize)
+                maxSize = (endI - C.get(endI) +1 );
+        }
+        for (int endI : C.keySet()) {
+            if ((endI - C.get(endI) +1) == maxSize){
+                endIndex = endI;
+                startIndex = C.get(endI);
+                break;
+            }
+        }
+        for (int i = startIndex; i <= endIndex; i++) {
             ans.add(A.get(i));
         }
         return ans;
     }
 }
+

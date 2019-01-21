@@ -14,3 +14,8 @@ public class Zoo {
         return 10;
     }
 }
+class Foo extends Zoo{
+    int getMobileNo(String n) throws Exception{
+        return 2;
+    }
+}

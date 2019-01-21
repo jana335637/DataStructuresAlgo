@@ -1,4 +1,4 @@
-package SI;
+package SI.BIT;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class TimeOfTheYear {
+public class ReverseBits {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) throws ParseException {
         Calendar c= Calendar.getInstance();
