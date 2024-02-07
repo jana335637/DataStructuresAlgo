@@ -4,8 +4,8 @@ package DataStructures;
  * Created by pillutja on 4/20/2018.
  */
 public class QueueLinkedListImplementation {
-    static Node front;
-    static Node rear;
+    static ListNode front;
+    static ListNode rear;
     public static void main(String[] args) {
         offer(0);
         poll();
@@ -32,10 +32,10 @@ public class QueueLinkedListImplementation {
             System.out.println("Queue is empty");
         } else
         {
-            Node currentNode = front;
-            while (currentNode!=null){
-                System.out.print(currentNode.value+" ");
-                currentNode = currentNode.next;
+            ListNode currentListNode = front;
+            while (currentListNode !=null){
+                System.out.print(currentListNode.val +" ");
+                currentListNode = currentListNode.next;
             }
             System.out.println();
         }
@@ -45,34 +45,34 @@ public class QueueLinkedListImplementation {
         if (isQueueEmpty()) {
             System.out.println("Queue is empty");
         } else
-            System.out.println("Peek is:"+front.value);
+            System.out.println("Peek is:"+front.val);
     }
 
     private static void poll() {
         if (isQueueEmpty()) {
             System.out.println("Queue is empty");
         } else if(front==rear){
-            System.out.println(front.value +" is dequed from Queue.");
+            System.out.println(front.val +" is dequed from Queue.");
             front=null;
             rear = null;
         }
         else{
-            System.out.println(front.value +" is dequed from Queue.");
+            System.out.println(front.val +" is dequed from Queue.");
             front=front.next;  //front = (front+1)%max_size
         }
     }
     private static void offer(int i) {
-        Node currentNode =new Node();
-        currentNode.value = i;
+        ListNode currentListNode = new ListNode();
+        currentListNode.val = i;
         System.out.println(i+" offered into queue");
         if(isQueueEmpty())
         {
-            front = currentNode;
-            rear = currentNode;
+            front = currentListNode;
+            rear = currentListNode;
         }
         else{
-            rear.next = currentNode;
-            rear = currentNode;
+            rear.next = currentListNode;
+            rear = currentListNode;
         }
     }
 

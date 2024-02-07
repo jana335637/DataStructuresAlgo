@@ -1,14 +1,12 @@
 package DataStructures;
 
-import java.util.Stack;
-
 import static jdk.nashorn.internal.objects.NativeArray.push;
 
 /**
  * Created by pillutja on 4/19/2018.
  */
 public class StackLinkedListImplementation {
-    static Node head;
+    static ListNode head;
     public static void main(String[] args) {
         push(2);
         printStack();
@@ -29,31 +27,31 @@ public class StackLinkedListImplementation {
         if(head == null)
             System.out.println("Stack under flow");
         else{
-            Node temp = head;
+            ListNode temp = head;
             while(temp!=null)
             {
-                System.out.print(temp.value + " ");
+                System.out.print(temp.val + " ");
                 temp = temp.next;
             }
         }
         System.out.println();
     }
     private static void push(int i) {
-        Node newNode = new Node();
-        newNode.value = i;
+        ListNode newListNode = new ListNode();
+        newListNode.val = i;
         if(head==null){
-            head = newNode;
+            head = newListNode;
         }
         else{
-            newNode.next=head;
-            head = newNode;
+            newListNode.next=head;
+            head = newListNode;
         }
     }
     private static void pop() {
         if(head == null)
             System.out.println("Stack under flow");
         else{
-            Node temp =head;
+            ListNode temp =head;
             head = head.next;
             temp.next=null;
         }
@@ -67,7 +65,7 @@ public class StackLinkedListImplementation {
             return -100;
         }
         else {
-            return head.value;
+            return head.val;
         }
     }
 }

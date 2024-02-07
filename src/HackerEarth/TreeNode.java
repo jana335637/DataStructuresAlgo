@@ -2,18 +2,18 @@ package HackerEarth;
 
 import java.util.Scanner;
 
-public class BinaryTreeNode{
-    int data;
-    BinaryTreeNode left;
-    BinaryTreeNode right;
-    static BinaryTreeNode root;
+public class TreeNode {
+    public int data;
+    public TreeNode left;
+    public TreeNode right;
+    static TreeNode root;
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
         String firstLine = in.nextLine();
         String[] firstLineChars = firstLine.split(" ");
         int noOfNodes = Integer.parseInt(firstLineChars[0]);
         int rootData = Integer.parseInt(firstLineChars[1]);
-        root = new BinaryTreeNode();
+        root = new TreeNode();
         root.data= rootData;
         String[] paths = new String[noOfNodes-1];
         for (int i = 0; i < (noOfNodes-1) ; i++) {
@@ -23,10 +23,10 @@ public class BinaryTreeNode{
         }
         System.out.println(diameterOfTree(root));
     }
-    public static void addNode(BinaryTreeNode root,String path,int data){
-        BinaryTreeNode newNode = new BinaryTreeNode();
+    public static void addNode(TreeNode root, String path, int data){
+        TreeNode newNode = new TreeNode();
         newNode.data=data;
-        BinaryTreeNode currentNode=root;
+        TreeNode currentNode=root;
         int i;
         for (i = 0; i < (path.length()-1); i++) {
             if(path.charAt(i) == 'L'){
@@ -43,7 +43,7 @@ public class BinaryTreeNode{
             currentNode.right= newNode;
         }
     }
-    public static int heightOfTree(BinaryTreeNode root){
+    public static int heightOfTree(TreeNode root){
         if(root==null)
             return -1;
         else
@@ -51,7 +51,7 @@ public class BinaryTreeNode{
             return max(heightOfTree(root.left),heightOfTree(root.right))+1;
         }
     }
-    public static int diameterOfTree(BinaryTreeNode root){
+    public static int diameterOfTree(TreeNode root){
         if(root==null)
             return 0;
         int lheight = heightOfTree(root.left);
