@@ -1,11 +1,6 @@
 package SI.Graphs;
 
-import javafx.util.Pair;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class FuelFission {
@@ -19,7 +14,7 @@ public class FuelFission {
         }
     }
 
-    private static void checkPath() {
+    private static void checkPath() {}/*{
         int n = in.nextInt(),v=in.nextInt();
         ArrayList<ArrayList<Pair<Integer,Integer>>> G = new ArrayList<ArrayList<Pair<Integer,Integer>>>();
         for (int j = 0; j <= n ; j++) {
@@ -38,9 +33,9 @@ public class FuelFission {
             else
                 System.out.println("No");
         }
-    }
+    }*/
 
-    private static boolean BFS(ArrayList<ArrayList<Pair<Integer, Integer>>> G, int s, int d) {
+    /*private static boolean BFS(ArrayList<ArrayList<Pair<Integer, Integer>>> G, int s, int d) {
         boolean[] vis = new boolean[G.size()];
         Queue<Integer> q = new LinkedList<>();
         q.add(s);
@@ -57,5 +52,5 @@ public class FuelFission {
             }
         }
         return false;
-    }
+    }*/
 }

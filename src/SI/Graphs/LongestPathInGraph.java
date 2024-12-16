@@ -1,14 +1,12 @@
 package SI.Graphs;
 
-import javafx.util.Pair;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class LongestPathInGraph {
+public class LongestPathInGraph {}/*{
 
     static Scanner in = new Scanner(System.in);
     static int longestPathLength = 0;
@@ -62,4 +60,4 @@ public class LongestPathInGraph {
         }
         return new Pair(newNode, pl+1);
     }
-}
+}*/

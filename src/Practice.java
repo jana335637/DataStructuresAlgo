@@ -1,7 +1,4 @@
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -21,19 +18,20 @@ public class Practice {
         System.out.println();
     }
 
-    static int tryReturn() {
+    static boolean tryReturn() {
         try {
-            //throw new Exception();
-            return 1;
-        } finally {
-            System.out.println("finally block executed");
+            if(1==1) throw new Exception();
+            return true;
+        } catch (Exception e) {
+            System.out.println("catch block");
+            throw new RuntimeException("new exception");
         }
     }
 
-    public static void main(String[] args) throws IOException, CloneNotSupportedException {
+    public static void main(String[] args) throws Exception {
 
         ArrayList<String> strings = new ArrayList<>();
-        System.out.println(strings.contains("jana"));
+        tryReturn();
         //System.out.println("889".compareTo("898"));
         /*System.out.println(tryReturn());
         System.out.println(sum(1,2.0));

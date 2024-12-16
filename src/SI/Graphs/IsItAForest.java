@@ -1,12 +1,6 @@
 package SI.Graphs;
 
-import javafx.util.Pair;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-public class IsItAForest {
+public class IsItAForest{} /*{
     static int n = 0, e = 0;
     static Scanner in = new Scanner(System.in);
 
@@ -53,4 +47,4 @@ public class IsItAForest {
         }
         return false;
     }
-}
+}*/

@@ -21,7 +21,7 @@ public class TreeTraversals {
 
     ArrayList<Integer> ans = new ArrayList<>();
 
-    /*public ArrayList<Integer> preorderTraversal(TreeNode A) {
+    /*public ArrayList<Integer> preorderTraversal(Trees.TreeNode A) {
         if (A == null)
             return new ArrayList<>();
         ans.add(A.val);
@@ -29,7 +29,7 @@ public class TreeTraversals {
         preorderTraversal(A.right);
         return ans;
     }
-    public ArrayList<Integer> postorderTraversal(TreeNode A) {
+    public ArrayList<Integer> postorderTraversal(Trees.TreeNode A) {
         if (A == null)
             return new ArrayList<>();
         postorderTraversal(A.left);
@@ -37,7 +37,7 @@ public class TreeTraversals {
         ans.add(A.val);
         return ans;
     }
-    public ArrayList<Integer> inorderTraversal(TreeNode A) {
+    public ArrayList<Integer> inorderTraversal(Trees.TreeNode A) {
         if (A == null)
             return new ArrayList<>();
         inorderTraversal(A.left);

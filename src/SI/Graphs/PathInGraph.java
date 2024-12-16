@@ -1,6 +1,5 @@
 package SI.Graphs;
 
-import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class PathInGraph {
+public class PathInGraph {}/*{
 
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) throws IOException {
@@ -72,4 +71,4 @@ public class PathInGraph {
         }
         return false;
     }
-}
+}*/

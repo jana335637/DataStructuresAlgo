@@ -1,11 +1,7 @@
 package SI.Graphs;
 
-import javafx.util.Pair;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class NumberOfConnectedComponents {
@@ -18,7 +14,7 @@ public class NumberOfConnectedComponents {
         }
     }
 
-    private static void printNoOfConnectedComponents() {
+    private static void printNoOfConnectedComponents() {}/*{
         int n = in.nextInt(),v=in.nextInt();
         ArrayList<ArrayList<Pair<Integer,Integer>>> G = new ArrayList<ArrayList<Pair<Integer,Integer>>>();
         for (int j = 0; j <= n ; j++) {
@@ -37,13 +33,13 @@ public class NumberOfConnectedComponents {
             DFS(G,i,vis);
         }
         System.out.println(cc);
-    }
+    }*/
 
-    private static void DFS(ArrayList<ArrayList<Pair<Integer, Integer>>> G, int s, boolean[] vis) {
+    /*private static void DFS(ArrayList<ArrayList<Pair<Integer, Integer>>> G, int s, boolean[] vis) {
         if(vis[s]) return ;
         vis[s]=true;
         for(Pair<Integer,Integer> newNode:G.get(s)){
             DFS(G,newNode.getKey(),vis);
         }
-    }
+    }*/
 }
