@@ -16,7 +16,7 @@ public class ArrayBug {
         for (int i = 0; i < ans.size(); i++) {
             System.out.print(ans.get(i)+" ");
         }
-        /*HashMap<Integer,Boolean> ans = sieve(19);
+        /*HashMap.HashMap<Integer,Boolean> ans = sieve(19);
         for (int x : ans.keySet()) {
             System.out.print(x+" ");
         }*/
