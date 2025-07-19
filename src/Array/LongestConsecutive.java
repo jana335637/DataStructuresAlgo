@@ -5,18 +5,18 @@ import java.util.HashSet;
 public class LongestConsecutive {
     public int longestConsecutive(int[] nums) {
         HashSet<Integer> set = new HashSet<>();
-        for (int num : nums) {set.add(num);}
-        int longest = Integer.MIN_VALUE;;
-        for (int i = 0; i < nums.length; i++) {
-            if (!set.contains(nums[i]- 1)) {
-                int cnt=1, x =nums[i];
-                while (set.contains(x + 1)) {
+        for (int num : nums) {
+            set.add(num);
+        }
+        int max = 0, cnt=1;
+        for(Integer num : set) {
+            if(!set.contains(num - 1)) {
+                while(set.contains(num + 1)) {
                     cnt++;
-                    x++;
                 }
-                longest = Math.max(longest, cnt);
+                max = Math.max(max, cnt);
             }
         }
-        return longest;
+        return max;
     }
 }

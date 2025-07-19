@@ -1,5 +1,7 @@
 package String;
 
+import java.util.Arrays;
+
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {
         if(strs.length == 0 ) return  "";
@@ -20,5 +22,18 @@ public class LongestCommonPrefix {
             stringBuilder.append(ch);
         }
         return "";
+    }
+
+    public String longestCommonPrefixSort(String[] str) {
+        //your code goes here
+        Arrays.sort(str);
+        String first = str[0];
+        String last = str[str.length-1];
+        int minLen = Math.min(first.length(), last.length());
+        int i=0;
+        while(i<minLen && first.charAt(i)==last.charAt(i)){
+            i++;
+        }
+        return first.substring(0,i);
     }
 }

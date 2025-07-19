@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by pillutja on 1/22/2018.
@@ -31,7 +33,17 @@ public class Practice {
     public static void main(String[] args) throws Exception {
 
         ArrayList<String> strings = new ArrayList<>();
-        tryReturn();
+        //tryReturn();
+        List<String> names =  new ArrayList<>();
+        List<String> surnames = Collections.EMPTY_LIST;
+        System.out.println(surnames);
+        List<String> all = new ArrayList<>();
+        all.addAll(names);
+        all.addAll(surnames);
+
+        for(String surname : all) {
+            System.out.println(surname);
+        }
         //System.out.println("889".compareTo("898"));
         /*System.out.println(tryReturn());
         System.out.println(sum(1,2.0));
@@ -89,7 +101,7 @@ public class Practice {
         System.out.println(sysDate +" "+ validationDate+ " "+ validationDate.after(sysDate));
         Calendar aCalendar = Calendar.getInstance();
         System.out.println(aCalendar);*/
-        rec(1);
+
     }
 
     private static void rec(int i) {
