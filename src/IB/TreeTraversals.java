@@ -52,7 +52,7 @@ public class TreeTraversals {
         for (int i = 0; i < n; i++) {
             a[i] = in.nextInt();
         }
-        Node root = null;
+        NodeR root = null;
         for (int i = 0; i < n; i++) {
             root = insert(root, a[i]);
         }
@@ -72,7 +72,7 @@ public class TreeTraversals {
 */
     }
 
-    private static void preOrder(Node root) {
+    private static void preOrder(NodeR root) {
         if (root == null)
             return;
         System.out.print(root.val + " ");
@@ -80,7 +80,7 @@ public class TreeTraversals {
         preOrder(root.right);
     }
 
-    private static void inOrder(Node root) {
+    private static void inOrder(NodeR root) {
         if (root == null)
             return;
         inOrder(root.left);
@@ -88,16 +88,16 @@ public class TreeTraversals {
         inOrder(root.right);
     }
 
-    private static void postOrder(Node root) {
+    private static void postOrder(NodeR root) {
         if (root == null) return;
         postOrder(root.left);
         postOrder(root.right);
         System.out.print(root.val + " ");
     }
 
-    private static Node insert(Node root, int x) {
+    private static NodeR insert(NodeR root, int x) {
         if (root == null)
-            return new Node(x);
+            return new NodeR(x);
         if (x < root.val)
             root.left = insert(root.left, x);
         else
@@ -109,8 +109,8 @@ public class TreeTraversals {
 
 class Node {
     int val;
-    Node left;
-    Node right;
+    NodeR left;
+    NodeR right;
 
     Node(int x) {
         val = x;

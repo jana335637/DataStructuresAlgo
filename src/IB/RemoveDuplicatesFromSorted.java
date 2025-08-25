@@ -1,6 +1,7 @@
 package IB;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by pillutja on 12/30/2018.
@@ -33,5 +34,29 @@ public class RemoveDuplicatesFromSorted {
        }
         return A;
    }
+
+    public ListNode deleteDuplicatesFromUnsorted(ListNode A) {
+        Map<Integer, Integer> map = new HashMap<>();
+        if(A==null) return A;
+        while (A.next!=null && A.val == A.next.val){
+            A.next = A.next.next;
+        }
+        if(A.next ==null) return A;
+        ListNode p = A, c = A.next;
+        map.put(p.val, p.val);
+        while(c!=null){
+            if(map.get(c.val) == null){
+                map.put(c.val, c.val);
+                p=p.next;
+                c=p.next;
+            } else {
+                p.next=c.next;
+                c.next=null;
+                c=p.next;
+            }
+
+        }
+        return A;
+    }
 }
 
